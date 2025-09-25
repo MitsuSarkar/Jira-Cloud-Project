@@ -1,0 +1,1930 @@
+<html
+        xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+<title>Jira</title>
+<style type="text/css">
+table {
+    mso-displayed-decimal-separator:"\.";
+    mso-displayed-thousand-separator:"\,";
+}
+body
+{
+    margin: 0px;
+    font-size: 12px;
+    font-family: Arial, sans-serif;
+    color:black;
+}
+
+</style>
+<META HTTP-EQUIV="Content-Type" Content="application/vnd.ms-excel; charset=UTF-8">
+<!-- JRA-7598 - ensure fields (e.g. description) occupy only one cell - even fields containing newlines. -->
+<!--
+Vertical align all cells to the top, in order to align all issue rows of issuetable to the top,
+since Excel does not use or save the css files it is hardcoded here.
+-->
+<style>
+@page
+{
+mso-page-orientation:landscape;
+margin:.25in .25in .5in .25in;
+mso-header-margin:.5in;
+mso-footer-margin:.25in;
+mso-footer-data:"&R&P of &N";
+mso-horizontal-page-align:center;
+mso-vertical-page-align:center;
+}
+
+td.issuekey,
+td.issuetype,
+td.status {
+    mso-style-parent: "";
+    mso-number-format: \@;
+    text-align: left;
+}
+br
+{
+    mso-data-placement:same-cell;
+}
+
+td
+{
+    vertical-align: top;
+}
+</style>
+
+<!--[if gte mso 9]><xml>
+<x:ExcelWorkbook>
+<x:ExcelWorksheets>
+<x:ExcelWorksheet>
+<x:Name>general_report</x:Name>
+<x:WorksheetOptions>
+<x:Print>
+<x:ValidPrinterInfo/>
+</x:Print>
+</x:WorksheetOptions>
+</x:ExcelWorksheet>
+</x:ExcelWorksheets>
+</x:ExcelWorkbook>
+</xml><![endif]-->
+</head>
+<body>
+
+<table border="1">
+    <tr bgcolor="#205081" height="30">
+        <td colspan="55">
+            <img src="https://bitsarkar.atlassian.net/images/icon-jira-family-logo.png" width="57" height="30" border="0" alt="Jira">
+        </td>
+    </tr>
+    <tr>
+        <td colspan="55">
+            <a href="https://bitsarkar.atlassian.net/issues/?jql=created+%3E%3D+-30d+order+by+created+DESC">Jira</a>
+        </td>
+    </tr>
+    <tr>
+                <td colspan="55">
+            Displaying <strong>19</strong> issues at <strong>25/Sep/25 10:31 PM</strong>.
+        </td>
+    </tr>
+</table>
+
+
+
+
+                                        <table id="issuetable" class="aui " border="1" cellpadding="3" cellspacing="1" width="100%">
+                        <thead>
+        <tr class="rowHeader">
+            
+                                                            <th class="colHeaderLink headerrow-statuscategorychangedate" data-id="statuscategorychangedate">
+                                                        Status Category Changed
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-issuetype" data-id="issuetype">
+                                                        Issue Type
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-timespent" data-id="timespent">
+                                                        Time Spent
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-project" data-id="project">
+                                                        Project
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-fixVersions" data-id="fixVersions">
+                                                        Fix versions
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-aggregatetimespent" data-id="aggregatetimespent">
+                                                        Σ Time Spent
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-statusCategory" data-id="statusCategory">
+                                                        Status Category
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-parent" data-id="parent">
+                                                        Parent
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-resolution" data-id="resolution">
+                                                        Resolution
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10036" data-id="customfield_10036">
+                                                        Story Points
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-resolutiondate" data-id="resolutiondate">
+                                                        Resolved
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-workratio" data-id="workratio">
+                                                        Work Ratio
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-watches" data-id="watches">
+                                                        Watchers
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-lastViewed" data-id="lastViewed">
+                                                        Last Viewed
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-thumbnail" data-id="thumbnail">
+                                                        Images
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-created" data-id="created">
+                                                        Created
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10020" data-id="customfield_10020">
+                                                        Sprint
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10021" data-id="customfield_10021">
+                                                        Flagged
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-priority" data-id="priority">
+                                                        Priority
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-labels" data-id="labels">
+                                                        Labels
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10016" data-id="customfield_10016">
+                                                        Story point estimate
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10017" data-id="customfield_10017">
+                                                        Issue color
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10019" data-id="customfield_10019">
+                                                        Rank
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-aggregatetimeoriginalestimate" data-id="aggregatetimeoriginalestimate">
+                                                        Σ Original Estimate
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-timeestimate" data-id="timeestimate">
+                                                        Remaining Estimate
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-issuelinks" data-id="issuelinks">
+                                                        Linked Issues
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-assignee" data-id="assignee">
+                                                        Assignee
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-updated" data-id="updated">
+                                                        Updated
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-status" data-id="status">
+                                                        Status
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-issuekey" data-id="issuekey">
+                                                        Key
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-timeoriginalestimate" data-id="timeoriginalestimate">
+                                                        Original estimate
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-description" data-id="description">
+                                                        Description
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10015" data-id="customfield_10015">
+                                                        Start date
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-security" data-id="security">
+                                                        Security Level
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-aggregatetimeestimate" data-id="aggregatetimeestimate">
+                                                        Σ Remaining Estimate
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-summary" data-id="summary">
+                                                        Summary
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-creator" data-id="creator">
+                                                        Creator
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-subtasks" data-id="subtasks">
+                                                        Sub-tasks
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10040" data-id="customfield_10040">
+                                                        Payroll
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10041" data-id="customfield_10041">
+                                                        Period (month)
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10042" data-id="customfield_10042">
+                                                        Cost Center
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-reporter" data-id="reporter">
+                                                        Reporter
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10043" data-id="customfield_10043">
+                                                        Gl Account
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-aggregateprogress" data-id="aggregateprogress">
+                                                        Σ Progress
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10000" data-id="customfield_10000">
+                                                        Development
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10044" data-id="customfield_10044">
+                                                        Variance Amount
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10001" data-id="customfield_10001">
+                                                        Team
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10045" data-id="customfield_10045">
+                                                        Material
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10046" data-id="customfield_10046">
+                                                        Data Source
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10047" data-id="customfield_10047">
+                                                        Mgmt Commentary
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10039" data-id="customfield_10039">
+                                                        Account  Type
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-environment" data-id="environment">
+                                                        Environment
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-duedate" data-id="duedate">
+                                                        Due date
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-progress" data-id="progress">
+                                                        Progress
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-votes" data-id="votes">
+                                                        Votes
+                                                    </th>
+                                                                    </tr>
+    </thead>
+    <tbody>
+                    
+
+                <tr id="issuerow10028" rel="10028" data-issuekey="BD-10" class="issuerow">
+                                            <td class="statuscategorychangedate"> &nbsp; </td>
+                                            <td class="issuetype">    Task
+</td>
+                                            <td class="timespent">0</td>
+                                            <td class="project">    Budget vs Actuals – Variance Reviews
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="aggregatetimespent">0</td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">To Do</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="resolution">    <em>Unresolved</em>
+</td>
+                                            <td class="customfield_10036"></td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="watches">0</td>
+                                            <td class="lastViewed"> 17/Sep/25 2:25 AM </td>
+                                            <td class="thumbnail"></td>
+                                            <td class="created"> 15/Sep/25 6:42 PM </td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="labels"></td>
+                                            <td class="customfield_10016">    2,105
+</td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10019">      0|i0001z:
+  </td>
+                                            <td class="aggregatetimeoriginalestimate">0</td>
+                                            <td class="timeestimate">0</td>
+                                            <td class="issuelinks"></td>
+                                            <td class="assignee">    <em>Unassigned</em>
+</td>
+                                            <td class="updated"> 17/Sep/25 2:26 AM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;To Do&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;(Migrated on 15 Sep 2025 17:45 UTC)&lt;/span&gt;">To Do</span>    </td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="BD-10" href="https://bitsarkar.atlassian.net/browse/BD-10">BD-10</a>
+</td>
+                                            <td class="timeoriginalestimate">0</td>
+                                            <td class="description"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="security"></td>
+                                            <td class="aggregatetimeestimate">0</td>
+                                            <td class="summary"><p>
+                Insurance Premiums +£3,100 (8%) vs Budget
+    </p>
+</td>
+                                            <td class="creator">            Sumit Sarkar
+    </td>
+                                            <td class="subtasks"></td>
+                                            <td class="customfield_10040"></td>
+                                            <td class="customfield_10041"></td>
+                                            <td class="customfield_10042"></td>
+                                            <td class="reporter">            Sumit Sarkar
+    </td>
+                                            <td class="customfield_10043"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="customfield_10000"></td>
+                                            <td class="customfield_10044"></td>
+                                            <td class="customfield_10001"></td>
+                                            <td class="customfield_10045"></td>
+                                            <td class="customfield_10046"></td>
+                                            <td class="customfield_10047"></td>
+                                            <td class="customfield_10039"></td>
+                                            <td class="environment"></td>
+                                            <td class="duedate">    05/Oct/25
+</td>
+                                            <td class="progress"></td>
+                                            <td class="votes">0</td>
+                    </tr>
+
+
+                <tr id="issuerow10023" rel="10023" data-issuekey="BD-9" class="issuerow">
+                                            <td class="statuscategorychangedate"> &nbsp; </td>
+                                            <td class="issuetype">    Task
+</td>
+                                            <td class="timespent">0</td>
+                                            <td class="project">    Budget vs Actuals – Variance Reviews
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="aggregatetimespent">0</td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">To Do</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="resolution">    <em>Unresolved</em>
+</td>
+                                            <td class="customfield_10036"></td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="watches">0</td>
+                                            <td class="lastViewed"> 17/Sep/25 2:26 AM </td>
+                                            <td class="thumbnail"></td>
+                                            <td class="created"> 15/Sep/25 6:42 PM </td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="priority">           Low
+    </td>
+                                            <td class="labels"></td>
+                                            <td class="customfield_10016">    2,005
+</td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10019">      0|i00027:
+  </td>
+                                            <td class="aggregatetimeoriginalestimate">0</td>
+                                            <td class="timeestimate">0</td>
+                                            <td class="issuelinks"></td>
+                                            <td class="assignee">    <em>Unassigned</em>
+</td>
+                                            <td class="updated"> 17/Sep/25 2:26 AM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;To Do&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;(Migrated on 15 Sep 2025 17:45 UTC)&lt;/span&gt;">To Do</span>    </td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="BD-9" href="https://bitsarkar.atlassian.net/browse/BD-9">BD-9</a>
+</td>
+                                            <td class="timeoriginalestimate">0</td>
+                                            <td class="description"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="security"></td>
+                                            <td class="aggregatetimeestimate">0</td>
+                                            <td class="summary"><p>
+                Utilities -£2,400 (-10%) vs Budget
+    </p>
+</td>
+                                            <td class="creator">            Sumit Sarkar
+    </td>
+                                            <td class="subtasks"></td>
+                                            <td class="customfield_10040"></td>
+                                            <td class="customfield_10041"></td>
+                                            <td class="customfield_10042"></td>
+                                            <td class="reporter">            Sumit Sarkar
+    </td>
+                                            <td class="customfield_10043"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="customfield_10000"></td>
+                                            <td class="customfield_10044"></td>
+                                            <td class="customfield_10001"></td>
+                                            <td class="customfield_10045"></td>
+                                            <td class="customfield_10046"></td>
+                                            <td class="customfield_10047"></td>
+                                            <td class="customfield_10039"></td>
+                                            <td class="environment"></td>
+                                            <td class="duedate">    05/Oct/25
+</td>
+                                            <td class="progress"></td>
+                                            <td class="votes">0</td>
+                    </tr>
+
+
+                <tr id="issuerow10022" rel="10022" data-issuekey="BD-8" class="issuerow">
+                                            <td class="statuscategorychangedate"> &nbsp; </td>
+                                            <td class="issuetype">    Task
+</td>
+                                            <td class="timespent">0</td>
+                                            <td class="project">    Budget vs Actuals – Variance Reviews
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="aggregatetimespent">0</td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">To Do</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="resolution">    <em>Unresolved</em>
+</td>
+                                            <td class="customfield_10036"></td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="watches">0</td>
+                                            <td class="lastViewed"> 17/Sep/25 2:26 AM </td>
+                                            <td class="thumbnail"></td>
+                                            <td class="created"> 15/Sep/25 6:42 PM </td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="priority">           High
+    </td>
+                                            <td class="labels"></td>
+                                            <td class="customfield_10016">    1,905
+</td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10019">      0|i0002b:
+  </td>
+                                            <td class="aggregatetimeoriginalestimate">0</td>
+                                            <td class="timeestimate">0</td>
+                                            <td class="issuelinks"></td>
+                                            <td class="assignee">    <em>Unassigned</em>
+</td>
+                                            <td class="updated"> 17/Sep/25 2:26 AM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;To Do&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;(Migrated on 15 Sep 2025 17:45 UTC)&lt;/span&gt;">To Do</span>    </td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="BD-8" href="https://bitsarkar.atlassian.net/browse/BD-8">BD-8</a>
+</td>
+                                            <td class="timeoriginalestimate">0</td>
+                                            <td class="description"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="security"></td>
+                                            <td class="aggregatetimeestimate">0</td>
+                                            <td class="summary"><p>
+                Professional Fees +£4,600 (12%) vs Budget
+    </p>
+</td>
+                                            <td class="creator">            Sumit Sarkar
+    </td>
+                                            <td class="subtasks"></td>
+                                            <td class="customfield_10040"></td>
+                                            <td class="customfield_10041"></td>
+                                            <td class="customfield_10042"></td>
+                                            <td class="reporter">            Sumit Sarkar
+    </td>
+                                            <td class="customfield_10043"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="customfield_10000"></td>
+                                            <td class="customfield_10044"></td>
+                                            <td class="customfield_10001"></td>
+                                            <td class="customfield_10045"></td>
+                                            <td class="customfield_10046"></td>
+                                            <td class="customfield_10047"></td>
+                                            <td class="customfield_10039"></td>
+                                            <td class="environment"></td>
+                                            <td class="duedate">    05/Oct/25
+</td>
+                                            <td class="progress"></td>
+                                            <td class="votes">0</td>
+                    </tr>
+
+
+                <tr id="issuerow10027" rel="10027" data-issuekey="BD-7" class="issuerow">
+                                            <td class="statuscategorychangedate"> &nbsp; </td>
+                                            <td class="issuetype">    Task
+</td>
+                                            <td class="timespent">0</td>
+                                            <td class="project">    Budget vs Actuals – Variance Reviews
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="aggregatetimespent">0</td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">To Do</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="resolution">    <em>Unresolved</em>
+</td>
+                                            <td class="customfield_10036"></td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="watches">0</td>
+                                            <td class="lastViewed"> 17/Sep/25 2:26 AM </td>
+                                            <td class="thumbnail"></td>
+                                            <td class="created"> 15/Sep/25 6:42 PM </td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="priority">           High
+    </td>
+                                            <td class="labels"></td>
+                                            <td class="customfield_10016">    1,805
+</td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10019">      0|i0002d:
+  </td>
+                                            <td class="aggregatetimeoriginalestimate">0</td>
+                                            <td class="timeestimate">0</td>
+                                            <td class="issuelinks"></td>
+                                            <td class="assignee">    <em>Unassigned</em>
+</td>
+                                            <td class="updated"> 17/Sep/25 2:26 AM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;To Do&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;(Migrated on 15 Sep 2025 17:45 UTC)&lt;/span&gt;">To Do</span>    </td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="BD-7" href="https://bitsarkar.atlassian.net/browse/BD-7">BD-7</a>
+</td>
+                                            <td class="timeoriginalestimate">0</td>
+                                            <td class="description"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="security"></td>
+                                            <td class="aggregatetimeestimate">0</td>
+                                            <td class="summary"><p>
+                FX Gain/Loss -£6,700 (-9%) vs Forecast
+    </p>
+</td>
+                                            <td class="creator">            Sumit Sarkar
+    </td>
+                                            <td class="subtasks"></td>
+                                            <td class="customfield_10040"></td>
+                                            <td class="customfield_10041"></td>
+                                            <td class="customfield_10042"></td>
+                                            <td class="reporter">            Sumit Sarkar
+    </td>
+                                            <td class="customfield_10043"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="customfield_10000"></td>
+                                            <td class="customfield_10044"></td>
+                                            <td class="customfield_10001"></td>
+                                            <td class="customfield_10045"></td>
+                                            <td class="customfield_10046"></td>
+                                            <td class="customfield_10047"></td>
+                                            <td class="customfield_10039"></td>
+                                            <td class="environment"></td>
+                                            <td class="duedate">    05/Oct/25
+</td>
+                                            <td class="progress"></td>
+                                            <td class="votes">0</td>
+                    </tr>
+
+
+                <tr id="issuerow10021" rel="10021" data-issuekey="BD-6" class="issuerow">
+                                            <td class="statuscategorychangedate"> &nbsp; </td>
+                                            <td class="issuetype">    Task
+</td>
+                                            <td class="timespent">0</td>
+                                            <td class="project">    Budget vs Actuals – Variance Reviews
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="aggregatetimespent">0</td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">To Do</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="resolution">    <em>Unresolved</em>
+</td>
+                                            <td class="customfield_10036"></td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="watches">0</td>
+                                            <td class="lastViewed"> 17/Sep/25 2:26 AM </td>
+                                            <td class="thumbnail"></td>
+                                            <td class="created"> 15/Sep/25 6:42 PM </td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="priority">           High
+    </td>
+                                            <td class="labels"></td>
+                                            <td class="customfield_10016">    1,705
+</td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10019">      0|i0002e:
+  </td>
+                                            <td class="aggregatetimeoriginalestimate">0</td>
+                                            <td class="timeestimate">0</td>
+                                            <td class="issuelinks"></td>
+                                            <td class="assignee">    <em>Unassigned</em>
+</td>
+                                            <td class="updated"> 17/Sep/25 2:26 AM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;To Do&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;(Migrated on 15 Sep 2025 17:45 UTC)&lt;/span&gt;">To Do</span>    </td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="BD-6" href="https://bitsarkar.atlassian.net/browse/BD-6">BD-6</a>
+</td>
+                                            <td class="timeoriginalestimate">0</td>
+                                            <td class="description"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="security"></td>
+                                            <td class="aggregatetimeestimate">0</td>
+                                            <td class="summary"><p>
+                Capex Equipment +£25,000 (30%) vs Budget
+    </p>
+</td>
+                                            <td class="creator">            Sumit Sarkar
+    </td>
+                                            <td class="subtasks"></td>
+                                            <td class="customfield_10040"></td>
+                                            <td class="customfield_10041"></td>
+                                            <td class="customfield_10042"></td>
+                                            <td class="reporter">            Sumit Sarkar
+    </td>
+                                            <td class="customfield_10043"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="customfield_10000"></td>
+                                            <td class="customfield_10044"></td>
+                                            <td class="customfield_10001"></td>
+                                            <td class="customfield_10045"></td>
+                                            <td class="customfield_10046"></td>
+                                            <td class="customfield_10047"></td>
+                                            <td class="customfield_10039"></td>
+                                            <td class="environment"></td>
+                                            <td class="duedate">    05/Oct/25
+</td>
+                                            <td class="progress"></td>
+                                            <td class="votes">0</td>
+                    </tr>
+
+
+                <tr id="issuerow10026" rel="10026" data-issuekey="BD-5" class="issuerow">
+                                            <td class="statuscategorychangedate"> &nbsp; </td>
+                                            <td class="issuetype">    Task
+</td>
+                                            <td class="timespent">0</td>
+                                            <td class="project">    Budget vs Actuals – Variance Reviews
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="aggregatetimespent">0</td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">To Do</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="resolution">    <em>Unresolved</em>
+</td>
+                                            <td class="customfield_10036"></td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="watches">0</td>
+                                            <td class="lastViewed"> 17/Sep/25 2:26 AM </td>
+                                            <td class="thumbnail"></td>
+                                            <td class="created"> 15/Sep/25 6:42 PM </td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="labels"></td>
+                                            <td class="customfield_10016">    1,605
+</td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10019">      0|i0002e:i
+  </td>
+                                            <td class="aggregatetimeoriginalestimate">0</td>
+                                            <td class="timeestimate">0</td>
+                                            <td class="issuelinks"></td>
+                                            <td class="assignee">    <em>Unassigned</em>
+</td>
+                                            <td class="updated"> 17/Sep/25 2:27 AM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;To Do&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;(Migrated on 15 Sep 2025 17:45 UTC)&lt;/span&gt;">To Do</span>    </td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="BD-5" href="https://bitsarkar.atlassian.net/browse/BD-5">BD-5</a>
+</td>
+                                            <td class="timeoriginalestimate">0</td>
+                                            <td class="description"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="security"></td>
+                                            <td class="aggregatetimeestimate">0</td>
+                                            <td class="summary"><p>
+                Travel Expenses -£1,200 (-15%) vs Budget
+    </p>
+</td>
+                                            <td class="creator">            Sumit Sarkar
+    </td>
+                                            <td class="subtasks"></td>
+                                            <td class="customfield_10040"></td>
+                                            <td class="customfield_10041"></td>
+                                            <td class="customfield_10042"></td>
+                                            <td class="reporter">            Sumit Sarkar
+    </td>
+                                            <td class="customfield_10043"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="customfield_10000"></td>
+                                            <td class="customfield_10044"></td>
+                                            <td class="customfield_10001"></td>
+                                            <td class="customfield_10045"></td>
+                                            <td class="customfield_10046"></td>
+                                            <td class="customfield_10047"></td>
+                                            <td class="customfield_10039"></td>
+                                            <td class="environment"></td>
+                                            <td class="duedate">    05/Oct/25
+</td>
+                                            <td class="progress"></td>
+                                            <td class="votes">0</td>
+                    </tr>
+
+
+                <tr id="issuerow10025" rel="10025" data-issuekey="BD-4" class="issuerow">
+                                            <td class="statuscategorychangedate"> &nbsp; </td>
+                                            <td class="issuetype">    Task
+</td>
+                                            <td class="timespent">0</td>
+                                            <td class="project">    Budget vs Actuals – Variance Reviews
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="aggregatetimespent">0</td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">To Do</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="resolution">    <em>Unresolved</em>
+</td>
+                                            <td class="customfield_10036"></td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="watches">0</td>
+                                            <td class="lastViewed"> 17/Sep/25 2:27 AM </td>
+                                            <td class="thumbnail"></td>
+                                            <td class="created"> 15/Sep/25 6:42 PM </td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="priority">           Highest
+    </td>
+                                            <td class="labels"></td>
+                                            <td class="customfield_10016">    1,503
+</td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10019">      0|i0002e:r
+  </td>
+                                            <td class="aggregatetimeoriginalestimate">0</td>
+                                            <td class="timeestimate">0</td>
+                                            <td class="issuelinks"></td>
+                                            <td class="assignee">    <em>Unassigned</em>
+</td>
+                                            <td class="updated"> 17/Sep/25 2:27 AM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;To Do&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;(Migrated on 15 Sep 2025 17:45 UTC)&lt;/span&gt;">To Do</span>    </td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="BD-4" href="https://bitsarkar.atlassian.net/browse/BD-4">BD-4</a>
+</td>
+                                            <td class="timeoriginalestimate">0</td>
+                                            <td class="description"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="security"></td>
+                                            <td class="aggregatetimeestimate">0</td>
+                                            <td class="summary"><p>
+                Payroll Variance +£8,200 (6%) vs Budget
+    </p>
+</td>
+                                            <td class="creator">            Sumit Sarkar
+    </td>
+                                            <td class="subtasks"></td>
+                                            <td class="customfield_10040"></td>
+                                            <td class="customfield_10041"></td>
+                                            <td class="customfield_10042"></td>
+                                            <td class="reporter">            Sumit Sarkar
+    </td>
+                                            <td class="customfield_10043"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="customfield_10000"></td>
+                                            <td class="customfield_10044"></td>
+                                            <td class="customfield_10001"></td>
+                                            <td class="customfield_10045"></td>
+                                            <td class="customfield_10046"></td>
+                                            <td class="customfield_10047"></td>
+                                            <td class="customfield_10039"></td>
+                                            <td class="environment"></td>
+                                            <td class="duedate">    05/Oct/25
+</td>
+                                            <td class="progress"></td>
+                                            <td class="votes">0</td>
+                    </tr>
+
+
+                <tr id="issuerow10024" rel="10024" data-issuekey="BD-3" class="issuerow">
+                                            <td class="statuscategorychangedate"> &nbsp; </td>
+                                            <td class="issuetype">    Task
+</td>
+                                            <td class="timespent">0</td>
+                                            <td class="project">    Budget vs Actuals – Variance Reviews
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="aggregatetimespent">0</td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">To Do</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="resolution">    <em>Unresolved</em>
+</td>
+                                            <td class="customfield_10036"></td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="watches">0</td>
+                                            <td class="lastViewed"> 17/Sep/25 2:23 AM </td>
+                                            <td class="thumbnail"></td>
+                                            <td class="created"> 15/Sep/25 6:42 PM </td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="priority">           High
+    </td>
+                                            <td class="labels"></td>
+                                            <td class="customfield_10016">    1,405
+</td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10019">      0|i0002e:v
+  </td>
+                                            <td class="aggregatetimeoriginalestimate">0</td>
+                                            <td class="timeestimate">0</td>
+                                            <td class="issuelinks"></td>
+                                            <td class="assignee">    <em>Unassigned</em>
+</td>
+                                            <td class="updated"> 17/Sep/25 2:24 AM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;To Do&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;(Migrated on 15 Sep 2025 17:45 UTC)&lt;/span&gt;">To Do</span>    </td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="BD-3" href="https://bitsarkar.atlassian.net/browse/BD-3">BD-3</a>
+</td>
+                                            <td class="timeoriginalestimate">0</td>
+                                            <td class="description"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="security"></td>
+                                            <td class="aggregatetimeestimate">0</td>
+                                            <td class="summary"><p>
+                IT SaaS Subscriptions -£3,500 (-22%) vs Budget
+    </p>
+</td>
+                                            <td class="creator">            Sumit Sarkar
+    </td>
+                                            <td class="subtasks"></td>
+                                            <td class="customfield_10040"></td>
+                                            <td class="customfield_10041"></td>
+                                            <td class="customfield_10042"></td>
+                                            <td class="reporter">            Sumit Sarkar
+    </td>
+                                            <td class="customfield_10043"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="customfield_10000"></td>
+                                            <td class="customfield_10044"></td>
+                                            <td class="customfield_10001"></td>
+                                            <td class="customfield_10045"></td>
+                                            <td class="customfield_10046"></td>
+                                            <td class="customfield_10047"></td>
+                                            <td class="customfield_10039"></td>
+                                            <td class="environment"></td>
+                                            <td class="duedate">    10/Sep/25
+</td>
+                                            <td class="progress"></td>
+                                            <td class="votes">0</td>
+                    </tr>
+
+
+                <tr id="issuerow10020" rel="10020" data-issuekey="BD-2" class="issuerow">
+                                            <td class="statuscategorychangedate"> &nbsp; </td>
+                                            <td class="issuetype">    Task
+</td>
+                                            <td class="timespent">0</td>
+                                            <td class="project">    Budget vs Actuals – Variance Reviews
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="aggregatetimespent">0</td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">To Do</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="resolution">    <em>Unresolved</em>
+</td>
+                                            <td class="customfield_10036"></td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="watches">0</td>
+                                            <td class="lastViewed"> 17/Sep/25 2:23 AM </td>
+                                            <td class="thumbnail"></td>
+                                            <td class="created"> 15/Sep/25 6:42 PM </td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="priority">           Highest
+    </td>
+                                            <td class="labels"></td>
+                                            <td class="customfield_10016">    1,305
+</td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10019">      0|i0002e:x
+  </td>
+                                            <td class="aggregatetimeoriginalestimate">0</td>
+                                            <td class="timeestimate">0</td>
+                                            <td class="issuelinks"></td>
+                                            <td class="assignee">    <em>Unassigned</em>
+</td>
+                                            <td class="updated"> 17/Sep/25 2:23 AM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;To Do&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;(Migrated on 15 Sep 2025 17:45 UTC)&lt;/span&gt;">To Do</span>    </td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="BD-2" href="https://bitsarkar.atlassian.net/browse/BD-2">BD-2</a>
+</td>
+                                            <td class="timeoriginalestimate">0</td>
+                                            <td class="description"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="security"></td>
+                                            <td class="aggregatetimeestimate">0</td>
+                                            <td class="summary"><p>
+                Revenue East Region +£45,800 (11%) vs Forecast
+    </p>
+</td>
+                                            <td class="creator">            Sumit Sarkar
+    </td>
+                                            <td class="subtasks"></td>
+                                            <td class="customfield_10040"></td>
+                                            <td class="customfield_10041"></td>
+                                            <td class="customfield_10042"></td>
+                                            <td class="reporter">            Sumit Sarkar
+    </td>
+                                            <td class="customfield_10043"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="customfield_10000"></td>
+                                            <td class="customfield_10044"></td>
+                                            <td class="customfield_10001"></td>
+                                            <td class="customfield_10045"></td>
+                                            <td class="customfield_10046"></td>
+                                            <td class="customfield_10047"></td>
+                                            <td class="customfield_10039"></td>
+                                            <td class="environment"></td>
+                                            <td class="duedate">    22/Sep/25
+</td>
+                                            <td class="progress"></td>
+                                            <td class="votes">0</td>
+                    </tr>
+
+
+                <tr id="issuerow10019" rel="10019" data-issuekey="BD-1" class="issuerow">
+                                            <td class="statuscategorychangedate"> &nbsp; </td>
+                                            <td class="issuetype">    Task
+</td>
+                                            <td class="timespent">0</td>
+                                            <td class="project">    Budget vs Actuals – Variance Reviews
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="aggregatetimespent">0</td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">To Do</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="resolution">    <em>Unresolved</em>
+</td>
+                                            <td class="customfield_10036"></td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="watches">0</td>
+                                            <td class="lastViewed"> 17/Sep/25 2:22 AM </td>
+                                            <td class="thumbnail"></td>
+                                            <td class="created"> 15/Sep/25 6:42 PM </td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="priority">           High
+    </td>
+                                            <td class="labels"></td>
+                                            <td class="customfield_10016">    1,203
+</td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10019">      0|i0002e:y
+  </td>
+                                            <td class="aggregatetimeoriginalestimate">0</td>
+                                            <td class="timeestimate">0</td>
+                                            <td class="issuelinks"></td>
+                                            <td class="assignee">    <em>Unassigned</em>
+</td>
+                                            <td class="updated"> 17/Sep/25 2:22 AM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;To Do&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;(Migrated on 15 Sep 2025 17:45 UTC)&lt;/span&gt;">To Do</span>    </td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="BD-1" href="https://bitsarkar.atlassian.net/browse/BD-1">BD-1</a>
+</td>
+                                            <td class="timeoriginalestimate">0</td>
+                                            <td class="description"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="security"></td>
+                                            <td class="aggregatetimeestimate">0</td>
+                                            <td class="summary"><p>
+                Marketing Opex +£12,000 (18%) vs Budget (CC: 1203)
+    </p>
+</td>
+                                            <td class="creator">            Sumit Sarkar
+    </td>
+                                            <td class="subtasks"></td>
+                                            <td class="customfield_10040"></td>
+                                            <td class="customfield_10041"></td>
+                                            <td class="customfield_10042"></td>
+                                            <td class="reporter">            Sumit Sarkar
+    </td>
+                                            <td class="customfield_10043"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="customfield_10000"></td>
+                                            <td class="customfield_10044"></td>
+                                            <td class="customfield_10001"></td>
+                                            <td class="customfield_10045"></td>
+                                            <td class="customfield_10046"></td>
+                                            <td class="customfield_10047"></td>
+                                            <td class="customfield_10039"></td>
+                                            <td class="environment"></td>
+                                            <td class="duedate">    05/Sep/25
+</td>
+                                            <td class="progress"></td>
+                                            <td class="votes">0</td>
+                    </tr>
+
+
+                <tr id="issuerow10008" rel="10008" data-issuekey="BVAVR-5" class="issuerow">
+                                            <td class="statuscategorychangedate"> 15/Sep/25 12:59 AM </td>
+                                            <td class="issuetype">    Task
+</td>
+                                            <td class="timespent"></td>
+                                            <td class="project">    Budget vs Actuals - Variance Reviews
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">To Do</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="resolution">    <em>Unresolved</em>
+</td>
+                                            <td class="customfield_10036"></td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="watches">1</td>
+                                            <td class="lastViewed"> &nbsp; </td>
+                                            <td class="thumbnail"></td>
+                                            <td class="created"> 15/Sep/25 12:59 AM </td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="labels"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10019">      0|i0001r:
+  </td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="assignee">    <em>Unassigned</em>
+</td>
+                                            <td class="updated"> 15/Sep/25 12:59 AM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;To Do&lt;/span&gt;">To Do</span>    </td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="BVAVR-5" href="https://bitsarkar.atlassian.net/browse/BVAVR-5">BVAVR-5</a>
+</td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="description"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="security"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="summary"><p>
+                October 2025 Variance Review
+    </p>
+</td>
+                                            <td class="creator">            Sumit Sarkar
+    </td>
+                                            <td class="subtasks"></td>
+                                            <td class="customfield_10040"></td>
+                                            <td class="customfield_10041"></td>
+                                            <td class="customfield_10042"></td>
+                                            <td class="reporter">            Sumit Sarkar
+    </td>
+                                            <td class="customfield_10043"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="customfield_10000"></td>
+                                            <td class="customfield_10044"></td>
+                                            <td class="customfield_10001">    None
+</td>
+                                            <td class="customfield_10045"></td>
+                                            <td class="customfield_10046"></td>
+                                            <td class="customfield_10047"></td>
+                                            <td class="customfield_10039"></td>
+                                            <td class="environment"></td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="progress"></td>
+                                            <td class="votes">0</td>
+                    </tr>
+
+
+                <tr id="issuerow10007" rel="10007" data-issuekey="BVAVR-4" class="issuerow">
+                                            <td class="statuscategorychangedate"> 15/Sep/25 12:42 AM </td>
+                                            <td class="issuetype">    Task
+</td>
+                                            <td class="timespent"></td>
+                                            <td class="project">    Budget vs Actuals - Variance Reviews
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">To Do</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="resolution">    <em>Unresolved</em>
+</td>
+                                            <td class="customfield_10036"></td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="watches">1</td>
+                                            <td class="lastViewed"> 15/Sep/25 12:53 AM </td>
+                                            <td class="thumbnail"></td>
+                                            <td class="created"> 15/Sep/25 12:42 AM </td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="labels"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10019">      0|i0001j:
+  </td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="assignee">    <em>Unassigned</em>
+</td>
+                                            <td class="updated"> 15/Sep/25 12:59 AM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;To Do&lt;/span&gt;">To Do</span>    </td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="BVAVR-4" href="https://bitsarkar.atlassian.net/browse/BVAVR-4">BVAVR-4</a>
+</td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="description"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="security"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="summary"><p>
+                September 2025 Variance Review
+    </p>
+</td>
+                                            <td class="creator">            Sumit Sarkar
+    </td>
+                                            <td class="subtasks"></td>
+                                            <td class="customfield_10040"></td>
+                                            <td class="customfield_10041"></td>
+                                            <td class="customfield_10042"></td>
+                                            <td class="reporter">            Sumit Sarkar
+    </td>
+                                            <td class="customfield_10043"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="customfield_10000"></td>
+                                            <td class="customfield_10044"></td>
+                                            <td class="customfield_10001">    None
+</td>
+                                            <td class="customfield_10045"></td>
+                                            <td class="customfield_10046"></td>
+                                            <td class="customfield_10047"></td>
+                                            <td class="customfield_10039"></td>
+                                            <td class="environment"></td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="progress"></td>
+                                            <td class="votes">0</td>
+                    </tr>
+
+
+                <tr id="issuerow10006" rel="10006" data-issuekey="BVAVR-3" class="issuerow">
+                                            <td class="statuscategorychangedate"> 14/Sep/25 5:38 PM </td>
+                                            <td class="issuetype">    Task
+</td>
+                                            <td class="timespent"></td>
+                                            <td class="project">    Budget vs Actuals - Variance Reviews
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">To Do</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="resolution">    <em>Unresolved</em>
+</td>
+                                            <td class="customfield_10036"></td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="watches">1</td>
+                                            <td class="lastViewed"> &nbsp; </td>
+                                            <td class="thumbnail"></td>
+                                            <td class="created"> 14/Sep/25 5:38 PM </td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="priority">           High
+    </td>
+                                            <td class="labels"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10019">      0|i0001b:
+  </td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="assignee">    <em>Unassigned</em>
+</td>
+                                            <td class="updated"> 14/Sep/25 5:38 PM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;To Do&lt;/span&gt;">To Do</span>    </td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="BVAVR-3" href="https://bitsarkar.atlassian.net/browse/BVAVR-3">BVAVR-3</a>
+</td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="description">            Add context for yourself or reviewers:<br/>
+<br/>
+* “Variance driven by campaign spend shift into Sep. Need to confirm accruals.”<br/>
+* “Revenue spike from pre-orders — validate if timing or misbooking.”
+    </td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="security"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="summary"><p>
+                Marketing Opex +£12,000 (18%) vs Budget (CC: 1203)  Revenue East Region +£45,800 (11%) vs Forecast
+    </p>
+</td>
+                                            <td class="creator">            Sumit Sarkar
+    </td>
+                                            <td class="subtasks"></td>
+                                            <td class="customfield_10040"></td>
+                                            <td class="customfield_10041">          <span title="30/Sep/25"><time datetime="2025-09-30">30/Sep/25</time></span>
+    </td>
+                                            <td class="customfield_10042">    Option 1
+</td>
+                                            <td class="reporter">            Sumit Sarkar
+    </td>
+                                            <td class="customfield_10043">      640100
+  </td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="customfield_10000"></td>
+                                            <td class="customfield_10044">            5,000
+    </td>
+                                            <td class="customfield_10001">    None
+</td>
+                                            <td class="customfield_10045"></td>
+                                            <td class="customfield_10046">    ERP
+    </td>
+                                            <td class="customfield_10047"></td>
+                                            <td class="customfield_10039"></td>
+                                            <td class="environment"></td>
+                                            <td class="duedate">    10/Oct/25
+</td>
+                                            <td class="progress"></td>
+                                            <td class="votes">0</td>
+                    </tr>
+
+
+                <tr id="issuerow10005" rel="10005" data-issuekey="BVAVR-2" class="issuerow">
+                                            <td class="statuscategorychangedate"> 14/Sep/25 12:20 AM </td>
+                                            <td class="issuetype">    Task
+</td>
+                                            <td class="timespent"></td>
+                                            <td class="project">    Budget vs Actuals - Variance Reviews
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">To Do</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="resolution">    <em>Unresolved</em>
+</td>
+                                            <td class="customfield_10036"></td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="watches">1</td>
+                                            <td class="lastViewed"> &nbsp; </td>
+                                            <td class="thumbnail"></td>
+                                            <td class="created"> 14/Sep/25 12:20 AM </td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="labels"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10019">      0|i00013:
+  </td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="assignee">    <em>Unassigned</em>
+</td>
+                                            <td class="updated"> 14/Sep/25 12:20 AM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;To Do&lt;/span&gt;">To Do</span>    </td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="BVAVR-2" href="https://bitsarkar.atlassian.net/browse/BVAVR-2">BVAVR-2</a>
+</td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="description"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="security"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="summary"><p>
+                32323876
+    </p>
+</td>
+                                            <td class="creator">            Sumit Sarkar
+    </td>
+                                            <td class="subtasks"></td>
+                                            <td class="customfield_10040"></td>
+                                            <td class="customfield_10041"></td>
+                                            <td class="customfield_10042"></td>
+                                            <td class="reporter">            Sumit Sarkar
+    </td>
+                                            <td class="customfield_10043">      2125
+  </td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="customfield_10000"></td>
+                                            <td class="customfield_10044">            1,235
+    </td>
+                                            <td class="customfield_10001">    None
+</td>
+                                            <td class="customfield_10045"></td>
+                                            <td class="customfield_10046">    Data
+    </td>
+                                            <td class="customfield_10047"></td>
+                                            <td class="customfield_10039"></td>
+                                            <td class="environment"></td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="progress"></td>
+                                            <td class="votes">0</td>
+                    </tr>
+
+
+                <tr id="issuerow10004" rel="10004" data-issuekey="BVAVR-1" class="issuerow">
+                                            <td class="statuscategorychangedate"> 14/Sep/25 12:22 AM </td>
+                                            <td class="issuetype">    Task
+</td>
+                                            <td class="timespent"></td>
+                                            <td class="project">    Budget vs Actuals - Variance Reviews
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-yellow
+            jira-issue-status-lozenge-max-width-medium">In Progress</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="resolution">    <em>Unresolved</em>
+</td>
+                                            <td class="customfield_10036"></td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="watches">1</td>
+                                            <td class="lastViewed"> 14/Sep/25 8:27 PM </td>
+                                            <td class="thumbnail"></td>
+                                            <td class="created"> 14/Sep/25 12:15 AM </td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="labels"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10019">      0|i0000v:
+  </td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="assignee">    <em>Unassigned</em>
+</td>
+                                            <td class="updated"> 14/Sep/25 12:23 AM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-yellow jira-issue-status-lozenge-indeterminate aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Analyzing&lt;/span&gt;">Analyzing</span>    </td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="BVAVR-1" href="https://bitsarkar.atlassian.net/browse/BVAVR-1">BVAVR-1</a>
+</td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="description"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="security"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="summary"><p>
+                32323875
+    </p>
+</td>
+                                            <td class="creator">            Sumit Sarkar
+    </td>
+                                            <td class="subtasks"></td>
+                                            <td class="customfield_10040"></td>
+                                            <td class="customfield_10041"></td>
+                                            <td class="customfield_10042">    Option 1
+</td>
+                                            <td class="reporter">            Sumit Sarkar
+    </td>
+                                            <td class="customfield_10043">      2125
+  </td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="customfield_10000"></td>
+                                            <td class="customfield_10044"></td>
+                                            <td class="customfield_10001">    None
+</td>
+                                            <td class="customfield_10045">
+
+
+    <div class="shorten" id="customfield_10045-field">
+        							<span>mats</span>			            </div>
+</td>
+                                            <td class="customfield_10046">    ERP
+    </td>
+                                            <td class="customfield_10047"></td>
+                                            <td class="customfield_10039"></td>
+                                            <td class="environment"></td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="progress"></td>
+                                            <td class="votes">0</td>
+                    </tr>
+
+
+                <tr id="issuerow10003" rel="10003" data-issuekey="MFC-1" class="issuerow">
+                                            <td class="statuscategorychangedate"> 09/Sep/25 10:07 PM </td>
+                                            <td class="issuetype">    Task
+</td>
+                                            <td class="timespent"></td>
+                                            <td class="project">    Monthly Financial Close
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">To Do</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="resolution">    <em>Unresolved</em>
+</td>
+                                            <td class="customfield_10036"></td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="watches">1</td>
+                                            <td class="lastViewed"> 09/Sep/25 10:07 PM </td>
+                                            <td class="thumbnail"></td>
+                                            <td class="created"> 09/Sep/25 10:07 PM </td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="labels"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10019">      0|i0000n:
+  </td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="assignee">    <em>Unassigned</em>
+</td>
+                                            <td class="updated"> 09/Sep/25 10:07 PM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;To Do&lt;/span&gt;">To Do</span>    </td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="MFC-1" href="https://bitsarkar.atlassian.net/browse/MFC-1">MFC-1</a>
+</td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="description"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="security"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="summary"><p>
+                financial monthly closing
+    </p>
+</td>
+                                            <td class="creator">            Sumit Sarkar
+    </td>
+                                            <td class="subtasks"></td>
+                                            <td class="customfield_10040"></td>
+                                            <td class="customfield_10041"></td>
+                                            <td class="customfield_10042"></td>
+                                            <td class="reporter">            Sumit Sarkar
+    </td>
+                                            <td class="customfield_10043"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="customfield_10000"></td>
+                                            <td class="customfield_10044"></td>
+                                            <td class="customfield_10001">    None
+</td>
+                                            <td class="customfield_10045"></td>
+                                            <td class="customfield_10046"></td>
+                                            <td class="customfield_10047"></td>
+                                            <td class="customfield_10039"></td>
+                                            <td class="environment"></td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="progress"></td>
+                                            <td class="votes">0</td>
+                    </tr>
+
+
+                <tr id="issuerow10002" rel="10002" data-issuekey="LEARNJIRA-3" class="issuerow">
+                                            <td class="statuscategorychangedate"> 09/Sep/25 9:01 PM </td>
+                                            <td class="issuetype">    Task
+</td>
+                                            <td class="timespent"></td>
+                                            <td class="project">    (Learn) Jira Premium benefits in 5 min 👋
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">To Do</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="resolution">    <em>Unresolved</em>
+</td>
+                                            <td class="customfield_10036"></td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="watches">1</td>
+                                            <td class="lastViewed"> &nbsp; </td>
+                                            <td class="thumbnail">            <a aria-label="Select to download the image for LEARNJIRA-3" href="https://bitsarkar.atlassian.net/secure/attachment/10000/atlassian-intelligence.png">
+            atlassian-intelligence.png
+        </a>
+    </td>
+                                            <td class="created"> 09/Sep/25 9:01 PM </td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="labels"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10019">      0|i0000f:
+  </td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="assignee">    <em>Unassigned</em>
+</td>
+                                            <td class="updated"> 09/Sep/25 9:01 PM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;To Do&lt;/span&gt;">To Do</span>    </td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="LEARNJIRA-3" href="https://bitsarkar.atlassian.net/browse/LEARNJIRA-3">LEARNJIRA-3</a>
+</td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="description">            [https://www.loom.com/embed/7fa7364ac5814377bf339d2ce31ae2a5?sid=4e385c77-5ea4-4c1d-adda-ebc8b3b3c698|https://www.loom.com/embed/7fa7364ac5814377bf339d2ce31ae2a5?sid=4e385c77-5ea4-4c1d-adda-ebc8b3b3c698|smart-embed]<br/>
+<br/>
+In this video, we’ll show you how to use Atlassian Intelligence in Jira to identify risks, automate work, and keep projects on track. See how AI can help you remove blockers before they slow you down and tickets with clear descriptions and acceptance criteria.<br/>
+<br/>
+*Resources:*<br/>
+<br/>
+<br/>
+* [Atlassian Intelligence overview|https://support.atlassian.com/organization-administration/docs/get-started-with-atlassian-intelligence-guide/]<br/>
+* [Use AI to write or create content|https://support.atlassian.com/jira-software-cloud/docs/use-atlassian-intelligence-to-help-write-or-edit-content/]<br/>
+* [Use AI to build better search queries|https://support.atlassian.com/jira-software-cloud/docs/use-atlassian-intelligence-to-search-for-issues/]<br/>
+* [How AI can create better automations|https://support.atlassian.com/cloud-automation/docs/use-atlassian-intelligence-with-jira-automation/]
+    </td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="security"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="summary"><p>
+                Atlassian Intelligence: How to work smarter with AI 🤖
+    </p>
+</td>
+                                            <td class="creator">            Sumit Sarkar
+    </td>
+                                            <td class="subtasks"></td>
+                                            <td class="customfield_10040"></td>
+                                            <td class="customfield_10041"></td>
+                                            <td class="customfield_10042"></td>
+                                            <td class="reporter">            Sumit Sarkar
+    </td>
+                                            <td class="customfield_10043"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="customfield_10000"></td>
+                                            <td class="customfield_10044"></td>
+                                            <td class="customfield_10001">    None
+</td>
+                                            <td class="customfield_10045"></td>
+                                            <td class="customfield_10046"></td>
+                                            <td class="customfield_10047"></td>
+                                            <td class="customfield_10039"></td>
+                                            <td class="environment"></td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="progress"></td>
+                                            <td class="votes">0</td>
+                    </tr>
+
+
+                <tr id="issuerow10001" rel="10001" data-issuekey="LEARNJIRA-2" class="issuerow">
+                                            <td class="statuscategorychangedate"> 09/Sep/25 9:01 PM </td>
+                                            <td class="issuetype">    Task
+</td>
+                                            <td class="timespent"></td>
+                                            <td class="project">    (Learn) Jira Premium benefits in 5 min 👋
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">To Do</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="resolution">    <em>Unresolved</em>
+</td>
+                                            <td class="customfield_10036"></td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="watches">1</td>
+                                            <td class="lastViewed"> &nbsp; </td>
+                                            <td class="thumbnail">            <a aria-label="Select to download the image for LEARNJIRA-2" href="https://bitsarkar.atlassian.net/secure/attachment/10002/plans.png">
+            plans.png
+        </a>
+    </td>
+                                            <td class="created"> 09/Sep/25 9:01 PM </td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="labels"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10019">      0|i00007:
+  </td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="assignee">    <em>Unassigned</em>
+</td>
+                                            <td class="updated"> 09/Sep/25 9:01 PM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;To Do&lt;/span&gt;">To Do</span>    </td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="LEARNJIRA-2" href="https://bitsarkar.atlassian.net/browse/LEARNJIRA-2">LEARNJIRA-2</a>
+</td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="description">            [https://www.loom.com/embed/88f966bbfc434507b26c397ab0923f3e?sid=3db973df-3c55-4045-a363-12053db42c32|https://www.loom.com/embed/88f966bbfc434507b26c397ab0923f3e?sid=3db973df-3c55-4045-a363-12053db42c32|smart-embed]<br/>
+<br/>
+In this video, we’ll show you how to use Plans to plan your work, track dependencies, and keep teams aligned. Learn how to build roadmaps into your team’s rituals and manage work so you always deliver on time.<br/>
+<br/>
+*Resources:*<br/>
+<br/>
+<br/>
+* [Plans overview|https://www.atlassian.com/software/jira/guides/advanced-roadmaps/overview]<br/>
+* [Getting started with Plans|https://support.atlassian.com/jira-software-cloud/docs/get-started-with-advanced-roadmaps/]<br/>
+* [More video tutorials on how to create a Plan|https://www.atlassian.com/software/jira/guides/advanced-roadmaps/tutorials]
+    </td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="security"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="summary"><p>
+                Plans: How to use detailed roadmaps to plan out your work 📍
+    </p>
+</td>
+                                            <td class="creator">            Sumit Sarkar
+    </td>
+                                            <td class="subtasks"></td>
+                                            <td class="customfield_10040"></td>
+                                            <td class="customfield_10041"></td>
+                                            <td class="customfield_10042"></td>
+                                            <td class="reporter">            Sumit Sarkar
+    </td>
+                                            <td class="customfield_10043"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="customfield_10000"></td>
+                                            <td class="customfield_10044"></td>
+                                            <td class="customfield_10001">    None
+</td>
+                                            <td class="customfield_10045"></td>
+                                            <td class="customfield_10046"></td>
+                                            <td class="customfield_10047"></td>
+                                            <td class="customfield_10039"></td>
+                                            <td class="environment"></td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="progress"></td>
+                                            <td class="votes">0</td>
+                    </tr>
+
+
+                <tr id="issuerow10000" rel="10000" data-issuekey="LEARNJIRA-1" class="issuerow">
+                                            <td class="statuscategorychangedate"> 09/Sep/25 9:01 PM </td>
+                                            <td class="issuetype">    Task
+</td>
+                                            <td class="timespent"></td>
+                                            <td class="project">    (Learn) Jira Premium benefits in 5 min 👋
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">To Do</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="resolution">    <em>Unresolved</em>
+</td>
+                                            <td class="customfield_10036"></td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="watches">1</td>
+                                            <td class="lastViewed"> 25/Sep/25 10:14 PM </td>
+                                            <td class="thumbnail">            <a aria-label="Select to download the image for LEARNJIRA-1" href="https://bitsarkar.atlassian.net/secure/attachment/10001/security-and-permissions.png">
+            security-and-permissions.png
+        </a>
+    </td>
+                                            <td class="created"> 09/Sep/25 9:01 PM </td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="labels"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10019">      0|hzzzzz:
+  </td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="assignee">    <em>Unassigned</em>
+</td>
+                                            <td class="updated"> 09/Sep/25 9:01 PM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;To Do&lt;/span&gt;">To Do</span>    </td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="LEARNJIRA-1" href="https://bitsarkar.atlassian.net/browse/LEARNJIRA-1">LEARNJIRA-1</a>
+</td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="description">            [https://www.loom.com/embed/b387523478a3417da222bc69403db9c0?sid=9c5cd990-e88a-41ca-b1c7-4f5fbe8ceb31|https://www.loom.com/embed/b387523478a3417da222bc69403db9c0?sid=9c5cd990-e88a-41ca-b1c7-4f5fbe8ceb31|smart-embed]<br/>
+<br/>
+In this video, we’ll show you how to control who can create, edit, or change project settings in Jira. Learn how to customize permissions so the right people have the right access, so your projects are secure and organized.<br/>
+<br/>
+*Resources:*<br/>
+<br/>
+<br/>
+* [Permissions overview|https://www.atlassian.com/software/jira/guides/permissions/overview]<br/>
+* [How to change permissions|https://www.atlassian.com/software/jira/guides/permissions/tutorials]<br/>
+* [Manage project permissions|https://support.atlassian.com/jira-cloud-administration/docs/manage-project-permissions/]
+    </td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="security"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="summary"><p>
+                Security &amp; permissions: How to control who can edit or or manage projects 🚧
+    </p>
+</td>
+                                            <td class="creator">            Sumit Sarkar
+    </td>
+                                            <td class="subtasks"></td>
+                                            <td class="customfield_10040"></td>
+                                            <td class="customfield_10041"></td>
+                                            <td class="customfield_10042"></td>
+                                            <td class="reporter">            Sumit Sarkar
+    </td>
+                                            <td class="customfield_10043"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="customfield_10000"></td>
+                                            <td class="customfield_10044"></td>
+                                            <td class="customfield_10001">    None
+</td>
+                                            <td class="customfield_10045"></td>
+                                            <td class="customfield_10046"></td>
+                                            <td class="customfield_10047"></td>
+                                            <td class="customfield_10039"></td>
+                                            <td class="environment"></td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="progress"></td>
+                                            <td class="votes">0</td>
+                    </tr>
+        </tbody>
+    </table>
+    <div class="end-of-stable-message"></div>
+            <table border="1" >
+<tr>
+    <td bgcolor="#dddddd" colspan="55"><font size="1">
+        Generated at Thu Sep 25 21:31:36 UTC 2025 by Sumit Sarkar using Jira 1001.0.0-SNAPSHOT#100290-rev:ff3892c6bc987126724529564f50c0767a2a33bd.
+    </font></td>
+</tr>
+</table>
+
+</body>
+</html>
